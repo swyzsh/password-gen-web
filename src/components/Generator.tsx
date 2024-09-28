@@ -1,17 +1,10 @@
 "use client";
-import { useState, useRef } from "react";
-
-const generate = (): string => {
-  return "generatedpass";
-};
+import { useRef } from "react";
+import { useResponse } from "@/lib/useResponse";
 
 export default function Generator() {
-  const [response, setResponse] = useState<string>("Click generate to begin");
+  const { response, handleGenerate } = useResponse();
   const outputRef = useRef<HTMLOutputElement | null>(null);
-
-  const handleGenerate = (): void => {
-    setResponse(generate);
-  };
 
   const handleCopy = async () => {
     const element = outputRef.current;
