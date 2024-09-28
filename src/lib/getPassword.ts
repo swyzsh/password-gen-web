@@ -9,7 +9,7 @@ type randomizerType = {
 };
 
 export function randomizePass({ length, params }: randomizerType): string {
-  let arr: string[] = [];
+  const arr: string[] = [];
   const randomNumber = getRand();
 
   for (let i = 0; i < length; i++) {
