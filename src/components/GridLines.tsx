@@ -46,7 +46,6 @@ export default function GridLines() {
           <div key={i} className="w-0 h-full border-l border-stone-500/30"></div>
         ))}
       </div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(28,28,28,0.9)_0%,_rgba(9,9,11,0.9)_100%)] z-10" />
     </div>
   );
 }
