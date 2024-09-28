@@ -9,22 +9,16 @@ export default function Generator() {
   const { handleCopy } = useCopyText(outputRef);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-4">
-      <div
-        className="flex flex-row justify-center items-center gap-4 
-                    px-4 py-2 text-2xl text-center text-zinc-100 bg-zinc-500/20 border rounded-lg border-zinc-300/20"
-      >
+    <div className="flex flex-col items-center justify-center gap-4">
+      <div className="flex flex-row items-center justify-center gap-4 rounded-lg border border-zinc-300/20 bg-zinc-500/20 px-4 py-2 text-center text-2xl text-zinc-100">
         <output ref={outputRef}>{response}</output>
-        <button
-          onClick={handleCopy}
-          className="px-2 py-1 text-xs bg-zinc-500/20 border rounded-lg border-zinc-300/20"
-        >
+        <button onClick={handleCopy} className="rounded-lg border border-zinc-300/20 bg-zinc-500/20 px-2 py-1 text-xs">
           Copy
         </button>
       </div>
       <button
         onClick={handleGenerate}
-        className="px-2 py-1 text-base text-center text-zinc-100 bg-zinc-500/20 border rounded-lg border-zinc-300/20"
+        className="rounded-lg border border-zinc-300/20 bg-zinc-500/20 px-2 py-1 text-center text-base text-zinc-100"
       >
         Generate
       </button>
