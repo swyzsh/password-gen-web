@@ -1,13 +1,31 @@
-// Pass gen
-// Options:
-// Length (adjustable MAX pass lenght option to gen)
-// Min Lenght (the lower band for random)
-
 import { useSettingsStore } from "@/lib/settingsStore";
 import combinations from "@/lib/combinations.json";
+import getRand from "./getRand";
+
+//---------- Randomizer ----------//
+type randomizerType = {
+  length: number;
+  params: string[];
+};
+
+export function randomizePass({ length, params }: randomizerType): string {
+  let arr: string[] = [];
+  const randomNumber = getRand();
+
+  for (let i = 0; i < length; i++) {
+    const rand = randomNumber.next().value as number;
+    const element = params[Math.floor(rand * params.length)];
+    arr.push(element);
+  }
+
+  const result = arr.join("");
+  return result;
+}
+//--------------------------------//
 
 export default function getPassword(): string {
-  const { selLowercase, selUppercase, selNumbers, selSpecial } = useSettingsStore.getState();
+  const { selLowercase, selUppercase, selNumbers, selSpecial, selLength } = useSettingsStore.getState();
+  const passLength = selLength;
   const genParams: string[] = [];
 
   const optionsMap: { [key: string]: boolean } = {
@@ -35,8 +53,6 @@ export default function getPassword(): string {
     return "Click generate to begin";
   }
 
-  console.log("Selected Params: ", genParams);
-  //const passLength = selLength;
-
-  return "generatedpass";
+  const password = randomizePass({ length: passLength, params: genParams });
+  return password;
 }
