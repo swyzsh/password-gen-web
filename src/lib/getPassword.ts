@@ -36,7 +36,7 @@ export default function getPassword(): string {
   }
 
   console.log("Selected Params: ", genParams);
-  const passLength = selLength;
+  //const passLength = selLength;
 
   return "generatedpass";
 }
