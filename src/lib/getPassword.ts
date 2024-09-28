@@ -7,7 +7,7 @@ import { useSettingsStore } from "@/lib/settingsStore";
 import combinations from "@/lib/combinations.json";
 
 export default function getPassword(): string {
-  const { selLowercase, selUppercase, selNumbers, selSpecial, selLength } = useSettingsStore.getState();
+  const { selLowercase, selUppercase, selNumbers, selSpecial } = useSettingsStore.getState();
   const genParams: string[] = [];
 
   const optionsMap: { [key: string]: boolean } = {
