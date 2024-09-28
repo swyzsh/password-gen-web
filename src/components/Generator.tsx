@@ -1,39 +1,12 @@
 "use client";
 import { useRef } from "react";
 import { useResponse } from "@/lib/useResponse";
+import { useCopyText } from "@/lib/useCopyText";
 
 export default function Generator() {
   const { response, handleGenerate } = useResponse();
   const outputRef = useRef<HTMLOutputElement | null>(null);
-
-  const handleCopy = async () => {
-    const element = outputRef.current;
-    if (!element) {
-      console.error("Output element not present");
-      return;
-    }
-
-    const textToCopy = element.innerText;
-    try {
-      // Try the modern Clipboard API first (if supported)
-      navigator.clipboard.writeText(textToCopy);
-      console.log("Text copied successfully using Clipboard API");
-      alert("Password copied!");
-    } catch (err) {
-      console.error("Error copying text: ", err);
-      // Fallback: Legacy
-      const textArea = document.createElement("textarea");
-      textArea.value = textToCopy;
-      textArea.style.position = "fixed"; // Hide element off-screen
-      textArea.style.left = "-9999px";
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
-      console.log("Text copied successfully using legacy approach");
-      alert("Password copied!");
-    }
-  };
+  const { handleCopy } = useCopyText(outputRef);
 
   return (
     <div className="flex flex-col justify-center items-center gap-4">

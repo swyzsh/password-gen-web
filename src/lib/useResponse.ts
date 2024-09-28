@@ -1,9 +1,9 @@
 import { useState } from "react";
 import getPassword from "./getPassword";
 
-type TypeResponse = { response: string; handleGenerate: () => void };
+type useResponseType = { response: string; handleGenerate: () => void };
 
-export function useResponse(): TypeResponse {
+export function useResponse(): useResponseType {
   const [response, setResponse] = useState<string>("Click generate to begin");
 
   const handleGenerate = (): void => {
