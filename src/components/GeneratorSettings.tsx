@@ -1,5 +1,6 @@
 "use client";
 import { useSettingsStore } from "@/lib/settingsStore";
+import { Switch } from "@headlessui/react";
 
 export default function GeneratorSettings() {
   const {
@@ -23,38 +24,56 @@ export default function GeneratorSettings() {
                      border rounded-lg border-gray-900 bg-gray-950/20 hover:border-gray-800"
         >
           <label htmlFor="lowercase">a-z</label>
-          <input
-            type="checkbox"
+          <Switch
             id="lowercase"
             checked={selLowercase}
             onChange={() => setSelLowercase(!selLowercase)}
-          />
+            className="group inline-flex h-4 w-8 items-center rounded-full bg-stone-700 transition data-[checked]:bg-slate-600"
+          >
+            <span className="size-3 translate-x-1 rounded-full bg-slate-300 transition group-data-[checked]:translate-x-4" />
+          </Switch>
         </div>
         <div
           className="flex flex-row items-center justify-center gap-4 px-4 py-2 transition-all
                      border rounded-lg border-gray-900 bg-gray-950/20 hover:border-gray-800"
         >
           <label htmlFor="uppercase">A-Z</label>
-          <input
-            type="checkbox"
+          <Switch
             id="uppercase"
             checked={selUppercase}
             onChange={() => setSelUppercase(!selUppercase)}
-          />
+            className="group inline-flex h-4 w-8 items-center rounded-full bg-stone-700 transition data-[checked]:bg-slate-600"
+          >
+            <span className="size-3 translate-x-1 rounded-full bg-slate-300 transition group-data-[checked]:translate-x-4" />
+          </Switch>
         </div>
         <div
           className="flex flex-row items-center justify-center gap-4 px-4 py-2 transition-all
                      border rounded-lg border-gray-900 bg-gray-950/20 hover:border-gray-800"
         >
           <label htmlFor="numbers">0-9</label>
-          <input type="checkbox" id="numbers" checked={selNumbers} onChange={() => setSelNumbers(!selNumbers)} />
+          <Switch
+            id="numbers"
+            checked={selNumbers}
+            onChange={() => setSelNumbers(!selNumbers)}
+            className="group inline-flex h-4 w-8 items-center rounded-full bg-stone-700 transition data-[checked]:bg-slate-600"
+          >
+            <span className="size-3 translate-x-1 rounded-full bg-slate-300 transition group-data-[checked]:translate-x-4" />
+          </Switch>
         </div>
         <div
           className="flex flex-row items-center justify-center gap-4 px-4 py-2 transition-all
                      border rounded-lg border-gray-900 bg-gray-950/20 hover:border-gray-800"
         >
           <label htmlFor="specialChars">!@#$%^&*</label>
-          <input type="checkbox" id="specialChars" checked={selSpecial} onChange={() => setSelSpecial(!selSpecial)} />
+          <Switch
+            id="specialChars"
+            checked={selSpecial}
+            onChange={() => setSelSpecial(!selSpecial)}
+            className="group inline-flex h-4 w-8 items-center rounded-full bg-stone-700 transition data-[checked]:bg-slate-600"
+          >
+            <span className="size-3 translate-x-1 rounded-full bg-slate-300 transition group-data-[checked]:translate-x-4" />
+          </Switch>
         </div>
       </div>
 
@@ -66,13 +85,17 @@ export default function GeneratorSettings() {
         <div className="flex flex-row items-center justify-center gap-4">
           <span>{selLength}</span>
           <input
-            className=""
             type="range"
             min="5"
             max="128"
             value={selLength}
             id="length"
             onChange={(e) => setSelLength(Number(e.target.value))}
+            style={{
+              background: `linear-gradient(90deg, #475569 ${((selLength - 5) / 123) * 100}%, #44403c ${
+                ((selLength - 5) / 123) * 100
+              }%)`,
+            }}
           />
         </div>
       </div>

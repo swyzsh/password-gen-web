@@ -19,3 +19,95 @@ body {
     text-wrap: balance;
   }
 }
+
+/*-----Custom Range Slider Styles-----*/
+input[type="range"] {
+  -webkit-appearance: none; /* Remove default styling for webkit browsers */
+  appearance: none; /* Standard CSS to remove default styling */
+  width: 100%;
+  height: 8px;
+  background: transparent; /* Ensure no background interferes from CSS */
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-thumb,
+input[type="range"]::-ms-thumb {
+  width: 16px;
+  height: 16px;
+  border: transparent;
+  border-radius: 50%;
+  background: #cbd5e1; /* Thumb color */
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-moz-range-track,
+input[type="range"]::-ms-track {
+  background: transparent; /* Clear any default styles */
+  height: 8px;
+  border-radius: 5px;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background: #475569; /* Color of the filled part */
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: #44403c; /* Color of the unfilled part */
+}
+
+/* Thumb (handle) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #cbd5e1; /* Thumb color */
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: transparent;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 16px;
+  height: 16px;
+  border: transparent;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+}
+
+/* Progress-filled part */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    #475569 calc((var(--val) - 5) / (128 - 5) * 100%),
+    #44403c calc((var(--val) - 5) / (128 - 5) * 100%)
+  );
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+/* Change thumb style on hover */
+input[type="range"]::-webkit-slider-thumb:hover {
+  border: transparent;
+  background: #64748b;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  border: transparent;
+  background: #64748b;
+}
+/*----------Range Slider END----------*/
