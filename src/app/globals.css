@@ -5,12 +5,13 @@
 :root {
   --background: rgb(9, 9, 11);
   --foreground: rgb(209, 213, 219);
+  --try: #03071233;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-spacemono);
+  font-family: var(--font-geistmono-reg);
 }
 
 @layer utilities {

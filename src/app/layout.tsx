@@ -15,19 +15,19 @@ const geistMono = localFont({
   weight: "100 900",
 });
 */
-const iosevkaLight = localFont({
-  src: "../fonts/IosevkaNerdFont-Light.ttf",
-  variable: "--font-iosevka-light",
+const helveticaMedium = localFont({
+  src: "../fonts/HelveticaNeue-Medium.otf",
+  variable: "--font-helvetica-med",
   weight: "400",
 });
-const iosevkaMedium = localFont({
-  src: "../fonts/IosevkaNerdFont-Medium.ttf",
-  variable: "--font-iosevka-medium",
+const geistMono = localFont({
+  src: "../fonts/GeistMonoVF.woff",
+  variable: "--font-geistmono-reg",
   weight: "400",
 });
-const spaceMono = localFont({
-  src: "../fonts/SpaceMono-Regular.ttf",
-  variable: "--font-spacemono",
+const vt323Regular = localFont({
+  src: "../fonts/VT323-Regular.ttf",
+  variable: "--font-vt323-reg",
   weight: "400",
 });
 
@@ -43,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${iosevkaLight.variable} ${iosevkaMedium.variable} ${spaceMono.variable} antialiased`}>
+      <body className={`${helveticaMedium.variable} ${geistMono.variable} ${vt323Regular.variable} antialiased`}>
         <GridLines />
         {children}
       </body>

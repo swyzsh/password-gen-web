@@ -18,8 +18,9 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        iosevkaLight: "var(--font-iosevka-light)",
-        iosevkaMedium: "var(--font-iosevka-medium)",
+        helveticaMedium: "var(--font-helvetica-med)",
+        geistMono: "var(--font-geistmono-reg)",
+        vt323Regular: "var(--font-vt323-reg)",
       },
       animation: {
         shimmer: "shimmer 2s linear infinite",
