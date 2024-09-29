@@ -2,19 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import GridLines from "@/components/GridLines";
+import ShillFooter from "@/components/ShillFooter";
 
-/*
-const geistSans = localFont({
-  src: "../fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "../fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-*/
 const helveticaMedium = localFont({
   src: "../fonts/HelveticaNeue-Medium.otf",
   variable: "--font-helvetica-med",
@@ -43,9 +32,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className={`${helveticaMedium.variable} ${geistMono.variable} ${vt323Regular.variable} antialiased`}>
         <GridLines />
         {children}
+        <ShillFooter />
       </body>
     </html>
   );
